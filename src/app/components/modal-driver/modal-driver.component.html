@@ -1,0 +1,86 @@
+<body class="container mb-5" style="background-color: #AF9832">
+    <h2 mat-dialog-title>Condutor / Responsável</h2>
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+            <ng-container matColumnDef="select">
+            <th mat-header-cell *matHeaderCellDef>
+                <mat-checkbox (change)="$event ? masterToggle() : null"
+                            [checked]="selection.hasValue() && isAllSelected()"
+                            [indeterminate]="selection.hasValue() && !isAllSelected()"
+                            [aria-label]="checkboxLabel()">
+                </mat-checkbox>
+            </th>
+            <td mat-cell *matCellDef="let row">
+                <mat-checkbox (click)="$event.stopPropagation()"
+                            (change)="$event ? selection.toggle(row) : null"
+                            [checked]="selection.isSelected(row)"
+                            [aria-label]="checkboxLabel(row)">
+                </mat-checkbox>
+            </td>
+            </ng-container>
+
+            <ng-container matColumnDef="id" >
+            <th  mat-header-cell *matHeaderCellDef> Id </th>
+            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="marca" >
+            <th mat-header-cell *matHeaderCellDef> Marca </th>
+            <td mat-cell *matCellDef="let element"> {{element.marca}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="modelo">
+            <th mat-header-cell *matHeaderCellDef> Modelo </th>
+            <td mat-cell *matCellDef="let element"> {{element.modelo}} </td>
+            </ng-container>
+        
+
+            <ng-container matColumnDef="placa" class="m-auto">
+            <th mat-header-cell *matHeaderCellDef> Placa </th>
+            <td mat-cell *matCellDef="let element"> {{element.placa}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="cor" class="m-auto">
+                <th mat-header-cell *matHeaderCellDef> cor </th>
+                <td mat-cell *matCellDef="let element"> {{element.cor}} </td>
+                </ng-container>
+
+            <ng-container matColumnDef="chassi" class="m-auto">
+                <th mat-header-cell *matHeaderCellDef> Chassi </th>
+                <td mat-cell *matCellDef="let element"> {{element.chassi}} </td>
+                </ng-container>
+
+            <ng-container matColumnDef="quilometragem" class="m-auto">
+                <th mat-header-cell *matHeaderCellDef> Quilometragem </th>
+                <td mat-cell *matCellDef="let element"> {{element.quilometragem}} </td>
+                </ng-container>
+        
+
+            <ng-container matColumnDef="anoFabricacao" class="m-auto">
+            <th mat-header-cell *matHeaderCellDef> Ano </th>
+            <td mat-cell *matCellDef="let element"> {{element.anoFabricacao}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="status" class="m-auto">
+                <th mat-header-cell *matHeaderCellDef> Status </th>
+                <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+                </ng-container>
+        
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+                (click)="selection.toggle(row)">
+            </tr>
+        </table>
+
+        <mat-paginator class="mt-1" [length]="100"
+                    [pageSize]="10"
+                    [pageSizeOptions]="[10, 25, 100]"
+                    aria-label="Select page">
+        </mat-paginator>
+
+        <mat-dialog-actions class="justify-content-end">
+            <button mat-raised-button style="background-color: #AF9832; font-weight: bold;" mat-dialog-close>Cancel</button>
+            <button mat-raised-button style="background-color: #AF9832; font-weight: bold;" [mat-dialog-close]="true" cdkFocusInitial>Install</button>
+        </mat-dialog-actions>
+</body>
+
