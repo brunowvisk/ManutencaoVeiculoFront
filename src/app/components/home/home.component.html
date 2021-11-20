@@ -1,0 +1,37 @@
+  <div class="container mt-5">
+
+    <div class="card-group">
+      <div class="card text-center border-0">
+        <img  class="card-img-top mb-4 mt-4" src="../assets/carLogo.png" alt="Car Logo">
+        <div class="card-body mt-2">
+          <button (click)="openModalCar()" class="border-0" 
+          style="background-color:white;"><h5 class="card-title">Veículos</h5>
+        </button>
+          <p class="card-text">Listagem, adição, manutenção e remoção de 
+            veículos da frota oficial da Unidade.</p>
+        </div>
+      </div>
+      <div class="card text-center border-0">
+        <img class="card-img-top w-50 m-auto mb-2" src="../assets/driverLogo.png" alt="Card image cap">
+        <div class="card-body">
+          <button (click)="openModalDriver()" class="border-0" 
+          style="background-color:white;"><h5 class="card-title">Condutor / Responsável</h5>
+        </button>
+          <p class="card-text">
+            Listagem, adição, edição e remoção dos condutores 
+            e/ou responsáveis desta Unidade.</p>
+        </div>
+      </div>
+      <div class="card text-center d-flex justify-content-center border-0">
+        <img class="card-img-top w-50 m-auto mt-2" src="../assets/maintenanceLogo.png" style="align-items: center;" alt="Card image cap">
+        <div class="card-body">
+          <button (click)="openModalMaintenance()" class="border-0" 
+          style="background-color:white;"><h5 class="card-title">Manutenção</h5>
+        </button>
+          <p class="card-text">
+            Listagem, adição, edição e remoção de manutenções cadastradas.
+          </p>
+        </div>
+      </div>
+    </div>
+</div>
